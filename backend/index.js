@@ -53,7 +53,6 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 app.post('/api/persons', (request, response) => {
-	const id = Math.floor(Math.random() * 10000).toString()
 	const name = request.body.name
 	const number = request.body.number
 

@@ -25,7 +25,6 @@ const App = () => {
   const handleAddPerson = (event) => {
     event.preventDefault()
     const alreadyPerson = persons.find(person => person.name === newName)
-    console.log(alreadyPerson)
     if (alreadyPerson) {
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         const updatedPerson = {...alreadyPerson, number: newNumber}
@@ -48,7 +47,7 @@ const App = () => {
       setNewName('')
       setNewNumber('')
     } else {
-      const newPerson = {name: newName, number: newNumber, id: String(persons.length + 1)}
+      const newPerson = {name: newName, number: newNumber}
       console.log(newPerson)
       
       phoneService
