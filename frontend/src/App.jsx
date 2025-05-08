@@ -48,7 +48,6 @@ const App = () => {
       setNewNumber('')
     } else {
       const newPerson = {name: newName, number: newNumber}
-      console.log(newPerson)
       
       phoneService
         .create(newPerson)
@@ -61,6 +60,13 @@ const App = () => {
           setNewName('')
           setNewNumber('')
         })
+        .catch(error => {
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 3000)
+          console.log(error.response.data)
+        })    
     }
   }
 
